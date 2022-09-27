@@ -16,9 +16,9 @@ class ColumbiaStudentResource:
         h = os.environ.get("DBHOST")
 
         conn = pymysql.connect(
-            user=usr,
-            password=pw,
-            host=h,
+            user='root',
+            password='kx97kj68lj660',
+            host='localhost',
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True
         )
@@ -27,7 +27,7 @@ class ColumbiaStudentResource:
     @staticmethod
     def get_by_key(key):
 
-        sql = "SELECT * FROM f22_databases.columbia_students where guid=%s";
+        sql = "SELECT * FROM f22_databases.columbia_student where uni=%s";
         conn = ColumbiaStudentResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
